@@ -13,6 +13,10 @@ const skills: string[] = ["Elixir", "Ruby", "Phoenix framework", "Ruby on Rails"
 const happy: boolean = true;
 const finished: boolean = false;
 const goal: number = 3;
+
+const skillColor = "crimson";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -23,6 +27,17 @@ const goal: number = 3;
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
+		<style define:vars={{skillColor, fontWeight, textCase}}>
+			h1 {
+				color: purple;
+				font-size: 4rem;
+			}
+			.skill {
+				color: var(--skillColor);
+				font-weight: var(--fontWeight);
+				text-transform: var(--textCase);
+			}
+		</style>
 	</head>
 	<body>
         <a href="/">Home</a>
@@ -47,7 +62,7 @@ const goal: number = 3;
 		<p>My skills are:</p>
 		<ul>
 			{skills.map((skill) => (
-				<li>{skill}</li>
+				<li class="skill">{skill}</li>
 			))}
 		</ul>
 
